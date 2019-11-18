@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+emulate -L zsh
+setopt noksharrays
+
+local _save_cut="$CUTBUFFER" REPLY
+
+# mark this widget as a vi change so it can be repeated as a whole
+zle -f vichange
+
+# Use the standard vi-change to accept a vi motion.
+zle .vi-change || return
+# cut buffer contains the deleted text and can be modified
+case "$WIDGET" in
+	*unquote*) CUTBUFFER="${(Q)CUTBUFFER}" ;;
+	*) CUTBUFFER="${(q+)CUTBUFFER}" ;;
+esac
+
+# put the modified text back in position.
+if [[ CURSOR -eq 0 || $BUFFER[CURSOR] = $'\n' ]]; then
+  # at the beginning of a line, vi-delete won't have moved the cursor
+  # back to a previous line
+  zle .vi-put-before -n 1
+else
+  zle .vi-put-after -n 1
+fi
+
+# restore cut buffer and cursor to the start of the range
+CUTBUFFER="$_save_cut" CURSOR="$_save_cur"
