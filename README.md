@@ -6,7 +6,7 @@ This plugin adds an operation which quotes a motion.
 
 ```zsh
 echo 'hello world!'         # qq   (quote whole line)
-'echo '\''hello world!'\''  # if setopt norclines
+'echo '\''hello world!'\'   # if setopt norclines
 'echo ''hello world!'''     # if setopt rclines
 ```
 
