@@ -4,7 +4,8 @@ This plugin adds an operation which quotes or unquotes a motion.
 
 ## Features:
 
-- Registers itself as a `vi-change`, so operations like `qiw` and `Q2e` work
+- Registers itself as a `vi-change`,
+so the `.` dot-operator works correctly.
 - Honors the user's settings for `rcquote`
 
 ## Usage:
