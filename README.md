@@ -1,5 +1,7 @@
 # vi-quote
 
+[![Gitter](https://badges.gitter.im/zsh-vi-more/community.svg)](https://gitter.im/zsh-vi-more/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 This plugin adds an operation which quotes or unquotes a motion.
 
 ## Features:
